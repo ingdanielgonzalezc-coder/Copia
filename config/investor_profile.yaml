@@ -1,0 +1,54 @@
+# =============================================================================
+# Stock Advisor — Investor Profile
+# Defines trading style, horizon, and the universe to scan in DISCOVERY phase
+# =============================================================================
+
+investor_profile:
+  # Universe to scan in DISCOVERY phase
+  universe: "sp500"             # sp500 | nasdaq100 | russell2000 | custom
+  universe_refresh_days: 7      # how often to refresh ticker list
+
+  # Trading horizon
+  default_horizon: "short-to-medium"   # days to weeks
+  trade_horizon_days:
+    typical_min: 3
+    typical_max: 21
+    hard_max: 60                # forced review if held longer
+
+  # Style bias (used by DISCOVERY screener, NOT by Bull/Bear agents)
+  style_bias:
+    primary: "momentum_with_pullback"
+    secondary: "mean_reversion_in_uptrend"
+
+  # Hard filters applied at screener level (before debate)
+  hard_filters:
+    min_market_cap_usd: 10_000_000_000
+    min_avg_volume_usd: 50_000_000
+    atr_pct_range: [1.5, 6.0]   # exclude dead and casino tickers
+    earnings_blackout_days: 5
+    avoid_negative_news_days: 7
+
+  # DISCOVERY screener weights (technical setup scoring 0-100)
+  # Used in Week 3 when DISCOVERY phase is implemented
+  screener_weights:
+    momentum_setup:
+      price_above_ma50: 15
+      price_above_ma200: 10
+      ma50_above_ma200: 10
+      rsi_50_to_70: 10
+      volume_above_avg: 10
+      breakout_recent: 15
+      uptrend_slope: 10
+
+    mean_reversion_setup:
+      uptrend_intact: 15        # MA50 > MA200
+      pullback_to_ma20: 15
+      rsi_30_to_45: 15
+      panic_volume_decreasing: 10
+      bollinger_lower_band: 10
+
+  # How many tickers survive screener and enter the debate
+  discovery_top_n: 15
+
+  # Risk tolerance descriptor (used in agent context, not enforced)
+  risk_tolerance: "balanced"    # conservative | balanced | aggressive

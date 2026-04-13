@@ -1,0 +1,369 @@
+metadata:
+  last_updated: '2026-04-08T20:48:03.176493+00:00'
+  source: yfinance via refresh_sector_benchmarks.py
+  refresh_cadence: weekly (Sunday 08:00 UTC)
+  status: fresh
+sectors:
+  Technology:
+    etf_proxy: XLK
+    n_components: 30
+    n_failures: 0
+    metrics:
+      pe_ratio:
+        median: 37.1592
+        p25: 25.3257
+        p75: 58.3653
+      forward_pe:
+        median: 22.772
+        p25: 16.7892
+        p75: 27.4323
+      peg_ratio:
+        median: 1.4892
+        p25: 0.842
+        p75: 1.7551
+      profit_margin:
+        median: 0.2125
+        p25: 0.1424
+        p75: 0.2918
+      operating_margin:
+        median: 0.2923
+        p25: 0.186
+        p75: 0.3504
+      debt_to_equity:
+        median: 48.332
+        p25: 26.8015
+        p75: 85.0275
+      revenue_growth:
+        median: 0.1565
+        p25: 0.108
+        p75: 0.272
+  Financials:
+    etf_proxy: XLF
+    n_components: 23
+    n_failures: 2
+    metrics:
+      pe_ratio:
+        median: 17.6667
+        p25: 13.5704
+        p75: 28.7033
+      forward_pe:
+        median: 14.1896
+        p25: 10.667
+        p75: 17.911
+      peg_ratio:
+        median: 1.6514
+        p25: 1.2946
+        p75: 2.165
+      profit_margin:
+        median: 0.284
+        p25: 0.2007
+        p75: 0.3223
+      operating_margin:
+        median: 0.3832
+        p25: 0.3064
+        p75: 0.4559
+      debt_to_equity:
+        median: 66.531
+        p25: 27.6555
+        p75: 179.6195
+      revenue_growth:
+        median: 0.09
+        p25: 0.0515
+        p75: 0.149
+  Healthcare:
+    etf_proxy: XLV
+    n_components: 25
+    n_failures: 0
+    metrics:
+      pe_ratio:
+        median: 24.7626
+        p25: 19.892
+        p75: 32.2474
+      forward_pe:
+        median: 15.1809
+        p25: 12.5914
+        p75: 19.1893
+      peg_ratio:
+        median: 1.3896
+        p25: 1.0056
+        p75: 1.8332
+      profit_margin:
+        median: 0.1464
+        p25: 0.0801
+        p75: 0.2823
+      operating_margin:
+        median: 0.2313
+        p25: 0.1629
+        p75: 0.3055
+      debt_to_equity:
+        median: 76.196
+        p25: 50.9558
+        p75: 103.5348
+      revenue_growth:
+        median: 0.086
+        p25: 0.046
+        p75: 0.104
+  ConsumerDiscretionary:
+    etf_proxy: XLY
+    n_components: 22
+    n_failures: 0
+    metrics:
+      pe_ratio:
+        median: 28.8543
+        p25: 23.6399
+        p75: 33.191
+      forward_pe:
+        median: 21.7956
+        p25: 15.3035
+        p75: 26.6816
+      peg_ratio:
+        median: 1.9372
+        p25: 1.4429
+        p75: 3.0197
+      profit_margin:
+        median: 0.1039
+        p25: 0.0597
+        p75: 0.198
+      operating_margin:
+        median: 0.1165
+        p25: 0.0873
+        p75: 0.2118
+      debt_to_equity:
+        median: 84.241
+        p25: 27.698
+        p75: 208.299
+      revenue_growth:
+        median: 0.0675
+        p25: -0.023
+        p75: 0.106
+  ConsumerStaples:
+    etf_proxy: XLP
+    n_components: 20
+    n_failures: 0
+    metrics:
+      pe_ratio:
+        median: 25.4243
+        p25: 20.1075
+        p75: 35.6302
+      forward_pe:
+        median: 17.1964
+        p25: 12.6305
+        p75: 21.4809
+      peg_ratio:
+        median: 1.7578
+        p25: 1.4853
+        p75: 3.9062
+      profit_margin:
+        median: 0.0962
+        p25: 0.0305
+        p75: 0.1422
+      operating_margin:
+        median: 0.1448
+        p25: 0.0482
+        p75: 0.2507
+      debt_to_equity:
+        median: 129.4055
+        p25: 70.3852
+        p75: 251.797
+      revenue_growth:
+        median: 0.043
+        p25: 0.0077
+        p75: 0.0685
+  Energy:
+    etf_proxy: XLE
+    n_components: 16
+    n_failures: 2
+    metrics:
+      pe_ratio:
+        median: 23.6874
+        p25: 16.938
+        p75: 29.7343
+      forward_pe:
+        median: 15.3728
+        p25: 12.564
+        p75: 18.2941
+      peg_ratio:
+        median: 3.5901
+        p25: 2.1269
+        p75: 3.9815
+      profit_margin:
+        median: 0.0977
+        p25: 0.0644
+        p75: 0.1406
+      operating_margin:
+        median: 0.1371
+        p25: 0.0867
+        p75: 0.1695
+      debt_to_equity:
+        median: 50.963
+        p25: 34.8873
+        p75: 84.299
+      revenue_growth:
+        median: 0.0015
+        p25: -0.0328
+        p75: 0.0592
+  Industrials:
+    etf_proxy: XLI
+    n_components: 25
+    n_failures: 0
+    metrics:
+      pe_ratio:
+        median: 33.4971
+        p25: 23.6488
+        p75: 36.9329
+      forward_pe:
+        median: 21.8278
+        p25: 18.9628
+        p75: 26.2529
+      peg_ratio:
+        median: 2.3944
+        p25: 1.6409
+        p75: 2.7697
+      profit_margin:
+        median: 0.1263
+        p25: 0.0801
+        p75: 0.1729
+      operating_margin:
+        median: 0.1653
+        p25: 0.1092
+        p75: 0.2172
+      debt_to_equity:
+        median: 114.742
+        p25: 70.044
+        p75: 236.613
+      revenue_growth:
+        median: 0.068
+        p25: -0.006
+        p75: 0.096
+  Materials:
+    etf_proxy: XLB
+    n_components: 18
+    n_failures: 0
+    metrics:
+      pe_ratio:
+        median: 33.4937
+        p25: 23.6616
+        p75: 38.02
+      forward_pe:
+        median: 19.5346
+        p25: 14.2107
+        p75: 25.5086
+      peg_ratio:
+        median: 2.3929
+        p25: 1.3177
+        p75: 2.974
+      profit_margin:
+        median: 0.0772
+        p25: -0.0071
+        p75: 0.124
+      operating_margin:
+        median: 0.1386
+        p25: 0.0691
+        p75: 0.2208
+      debt_to_equity:
+        median: 58.8255
+        p25: 33.9913
+        p75: 96.9265
+      revenue_growth:
+        median: 0.058
+        p25: 0.032
+        p75: 0.101
+  Utilities:
+    etf_proxy: XLU
+    n_components: 20
+    n_failures: 0
+    metrics:
+      pe_ratio:
+        median: 22.4911
+        p25: 20.0017
+        p75: 25.7253
+      forward_pe:
+        median: 18.2035
+        p25: 17.5086
+        p75: 19.6661
+      peg_ratio:
+        median: 2.4488
+        p25: 2.0538
+        p75: 2.7727
+      profit_margin:
+        median: 0.1367
+        p25: 0.1182
+        p75: 0.1657
+      operating_margin:
+        median: 0.2146
+        p25: 0.1801
+        p75: 0.2449
+      debt_to_equity:
+        median: 153.5345
+        p25: 145.3515
+        p75: 182.579
+      revenue_growth:
+        median: 0.106
+        p25: 0.0505
+        p75: 0.1515
+  RealEstate:
+    etf_proxy: XLRE
+    n_components: 20
+    n_failures: 0
+    metrics:
+      pe_ratio:
+        median: 32.6259
+        p25: 23.4957
+        p75: 45.2251
+      forward_pe:
+        median: 33.7279
+        p25: 27.8766
+        p75: 40.6985
+      peg_ratio:
+        median: 4.301
+        p25: 1.8717
+        p75: 5.528
+      profit_margin:
+        median: 0.227
+        p25: 0.1354
+        p75: 0.362
+      operating_margin:
+        median: 0.3175
+        p25: 0.2244
+        p75: 0.464
+      debt_to_equity:
+        median: 84.8895
+        p25: 68.3375
+        p75: 108.8833
+      revenue_growth:
+        median: 0.039
+        p25: 0.029
+        p75: 0.0882
+  CommunicationServices:
+    etf_proxy: XLC
+    n_components: 18
+    n_failures: 2
+    metrics:
+      pe_ratio:
+        median: 20.3114
+        p25: 12.786
+        p75: 33.3135
+      forward_pe:
+        median: 14.0606
+        p25: 9.1422
+        p75: 23.4362
+      peg_ratio:
+        median: 2.0902
+        p25: 1.2109
+        p75: 7.8152
+      profit_margin:
+        median: 0.1262
+        p25: 0.0916
+        p75: 0.1756
+      operating_margin:
+        median: 0.1771
+        p25: 0.1093
+        p75: 0.2469
+      debt_to_equity:
+        median: 86.307
+        p25: 39.164
+        p75: 124.179
+      revenue_growth:
+        median: 0.0535
+        p25: 0.02
+        p75: 0.179

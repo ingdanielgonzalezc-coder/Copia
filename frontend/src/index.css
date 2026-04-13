@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Dark financial theme — approved palette */
+    --bg-primary: 10 14 26;          /* #0a0e1a — deep navy-black */
+    --bg-secondary: 17 22 39;        /* #111627 — card surface */
+    --bg-tertiary: 26 32 54;         /* #1a2036 — elevated surface */
+    --bg-hover: 32 39 63;            /* #20273f — hover */
+
+    --border-subtle: 255 255 255;    /* with 6% alpha */
+    --border-default: 255 255 255;   /* with 10% alpha */
+    --border-strong: 255 255 255;    /* with 16% alpha */
+
+    --fg-primary: 245 247 250;       /* #f5f7fa */
+    --fg-secondary: 155 163 184;     /* #9ba3b8 */
+    --fg-tertiary: 91 100 120;       /* #5b6478 */
+
+    --accent: 167 139 250;           /* #a78bfa — violet */
+    --accent-soft: 76 29 149;        /* #4c1d95 bg */
+
+    --success: 52 211 153;           /* #34d399 */
+    --success-soft: 6 78 59;         /* #064e3b bg */
+
+    --danger: 248 113 113;           /* #f87171 */
+    --danger-soft: 127 29 29;        /* #7f1d1d bg */
+
+    --warning: 251 191 36;           /* #fbbf24 */
+    --warning-soft: 120 53 15;       /* #78350f bg */
+
+    --info: 96 165 250;              /* #60a5fa */
+    --info-soft: 30 58 138;          /* #1e3a8a bg */
+  }
+
+  html, body, #root {
+    height: 100%;
+  }
+
+  body {
+    @apply bg-bg-primary text-fg-primary font-sans antialiased;
+    font-feature-settings: 'ss01', 'cv11';
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Tabular numerals for all mono text — numbers align */
+  .font-mono, .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Subtle custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgb(var(--border-default) / 0.3);
+    border-radius: 5px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(var(--border-strong) / 0.5);
+    background-clip: padding-box;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-bg-secondary rounded-lg;
+  }
+
+  .card-hover {
+    @apply transition-colors hover:bg-bg-tertiary;
+  }
+
+  .chip {
+    @apply inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-medium tracking-wide whitespace-nowrap;
+  }
+
+  .kpi-label {
+    @apply text-[10px] text-fg-tertiary uppercase tracking-wider mb-2;
+  }
+
+  .kpi-value {
+    @apply text-[22px] font-medium text-fg-primary leading-none font-mono;
+  }
+
+  .nav-item {
+    @apply flex items-center justify-center w-11 h-11 rounded-md text-fg-secondary hover:text-fg-primary hover:bg-bg-tertiary transition-colors cursor-pointer;
+  }
+
+  .nav-item-active {
+    @apply flex items-center justify-center w-11 h-11 rounded-md bg-accent/15 text-accent cursor-pointer;
+  }
+}

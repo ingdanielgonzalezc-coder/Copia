@@ -1,0 +1,106 @@
+# =============================================================================
+# Stock Advisor — Hard Rules
+# These rules are enforced by the rules_engine (deterministic, not LLM)
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# Position sizing
+# -----------------------------------------------------------------------------
+position_sizing:
+  max_allocation_per_ticker_pct: 10.0
+  max_allocation_per_ticker_override_pct: 12.0   # only with manual flag
+  min_position_size_pct: 2.0
+  max_open_positions: 12
+
+# -----------------------------------------------------------------------------
+# Sector concentration
+# -----------------------------------------------------------------------------
+sector_limits:
+  max_allocation_per_sector_pct: 25.0
+  max_correlated_positions_per_cluster: 3
+  # Correlated clusters: groups of sectors that move together
+  correlated_clusters:
+    mega_cap_tech: ["NVDA", "AAPL", "MSFT", "GOOGL", "META", "AMZN", "TSLA"]
+    semiconductors: ["NVDA", "AMD", "AVGO", "TSM", "INTC", "MU", "QCOM"]
+    big_banks: ["JPM", "BAC", "WFC", "C", "GS", "MS"]
+    energy_majors: ["XOM", "CVX", "COP", "EOG", "SLB"]
+
+# -----------------------------------------------------------------------------
+# Stop loss (ATR-based primary, percentage fallback)
+# -----------------------------------------------------------------------------
+stop_loss:
+  primary_method: "atr_based"
+  atr_multiplier_normal: 1.5      # BULL / NEUTRAL regimes
+  atr_multiplier_volatile: 2.0    # HIGH_VOLATILITY / BEAR regimes
+  fallback_pct: 8.0               # used if ATR unavailable
+  hard_max_pct: 12.0              # never wider than this
+  hard_min_pct: 4.0               # never tighter than this
+
+# -----------------------------------------------------------------------------
+# Trailing stop
+# -----------------------------------------------------------------------------
+trailing_stop:
+  primary_method: "atr_based"
+  atr_multiplier: 1.0
+  fallback_pct: 5.0
+  activate_after_profit_pct: 8.0  # only activate trailing once min profit reached
+
+# -----------------------------------------------------------------------------
+# Take profit
+# -----------------------------------------------------------------------------
+take_profit:
+  primary_pct: 25.0
+  on_target_action: "trim_50_and_trail"   # vs "close_all"
+  hard_max_pct: 50.0                       # forced close if reached
+
+# -----------------------------------------------------------------------------
+# Earnings & blackouts
+# -----------------------------------------------------------------------------
+blackouts:
+  enabled: true
+  before_earnings_days: 3       # days BEFORE earnings: no new entries
+  after_earnings_days: 1        # days AFTER earnings: no new entries
+  restricted_tickers: []        # manual list of tickers to avoid (e.g. ["GME"])
+  blackout_actions:             # actions blocked during blackout
+    - "BUY_NEW"
+    - "BUY"
+    - "ADD"
+  # Note: SELL/TRIM remain allowed during blackouts (risk management)
+
+# -----------------------------------------------------------------------------
+# Liquidity filters
+# -----------------------------------------------------------------------------
+liquidity:
+  min_avg_volume_usd: 50_000_000        # $50M average daily volume
+  min_market_cap_usd: 10_000_000_000    # $10B minimum market cap
+
+# -----------------------------------------------------------------------------
+# Portfolio risk (circuit breakers)
+# -----------------------------------------------------------------------------
+portfolio_risk:
+  volatility_target_annual_pct: 15.0    # SOFT target (alert only)
+  max_daily_loss_pct: 4.0               # → defensive mode (no new entries)
+  max_drawdown_from_peak_pct: 12.0      # → pause + manual review required
+  defensive_mode_cooldown_hours: 24     # how long defensive mode lasts after trigger
+
+# -----------------------------------------------------------------------------
+# Rebalancing
+# -----------------------------------------------------------------------------
+rebalancing:
+  trigger_threshold_pct: 3.0    # rebalance if position drifts >3% from target
+  cooldown_days: 7              # don't rebalance same ticker more than 1×/week
+
+# -----------------------------------------------------------------------------
+# Initial test portfolio (will be removed once DISCOVERY phase is live)
+# -----------------------------------------------------------------------------
+test_portfolio:
+  - ticker: "NVDA"
+    sector: "Technology"
+  - ticker: "AAPL"
+    sector: "Technology"
+  - ticker: "MSFT"
+    sector: "Technology"
+  - ticker: "JPM"
+    sector: "Financials"
+  - ticker: "XOM"
+    sector: "Energy"
